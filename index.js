@@ -41,3 +41,5 @@ AnimationCop.prototype.watchFor = function (ms) {
     }, ms);
   });
 };
+
+module.exports = AnimationCop;
