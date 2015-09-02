@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sync</title>
+  <meta charset="UTF-8">
+  <style>
+    .animation-area {
+      height: 200px;
+    }
+
+    .animated {
+      animation-duration: 1s;
+      animation-name: anim;
+      animation-iteration-count: infinite;
+    }
+    @keyframes anim {
+      from {
+        font-size: 10px;
+      }
+      to {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="animation-area">
+    <div class="animated">A</div>
+    <div class="animated">B</div>
+    <div class="animated">C</div>
+    <div class="animated">D</div>
+    <div class="animated">E</div>
+    <div>F<div>
+  </section>
+  <section>
+    <button id="start-watching">Start watching</button>
+    <div>Number of animated elements: <div id="result"></div></div>
+  </section>
+</body>
+<script src="./index.js"></script>
+<script>
+  (function () {
+    var btn = document.getElementById("start-watching");
+    var res = document.getElementById("result");
+    var cop = new AnimationCop();
+    btn.addEventListener("click", function () {
+      cop.watchFor(2000).then(function () {
+        res.innerHTML = cop.animatedElems.size;
+      });
+    });
+  })();
+</script>
+</html>
