@@ -1,4 +1,6 @@
-[WIP] animation-cop
+animation-cop
 ================
 
 Detect animated DOM elements
+
+TODO: better readme
