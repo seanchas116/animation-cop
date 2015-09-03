@@ -10,7 +10,7 @@ function AnimationCop() {
   };
 }
 
-AnimationCop.prototype.begin = function () {
+AnimationCop.prototype.start = function () {
   var elems = this.elems = document.querySelectorAll("*");
   this.animatedElems = new Set();
   var self = this;
@@ -21,7 +21,7 @@ AnimationCop.prototype.begin = function () {
   });
 };
 
-AnimationCop.prototype.end = function () {
+AnimationCop.prototype.stop = function () {
   var self = this;
   arrayForEach.call(this.elems, function (elem) {
     EVENTS.forEach(function (event) {
@@ -33,10 +33,10 @@ AnimationCop.prototype.end = function () {
 
 AnimationCop.prototype.watchFor = function (ms) {
   var self = this;
-  this.begin();
+  this.start();
   return new Promise(function (resolve) {
     setTimeout(function () {
-      self.end();
+      self.stop();
       resolve();
     }, ms);
   });
